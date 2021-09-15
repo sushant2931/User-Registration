@@ -19,7 +19,7 @@ public class UserRegistration {
 		if (isFirstName)
 			System.out.println(firstName + " is an Valid First Name\n");
 		else
-			System.err.println(firstName + " is an Invalid First Name");
+			System.out.println(firstName + " is an Invalid First Name");
 	}
 
 	public static void checkValidLastName(String lastName) {
@@ -36,7 +36,7 @@ public class UserRegistration {
 		if (isLastName)
 			System.out.println(lastName + " is an Valid Last Name\n");
 		else
-			System.err.println(lastName + " is an Invalid Last Name");
+			System.out.println(lastName + " is an Invalid Last Name");
 	}
 
 	public static void checkValidEmail(String email) {
@@ -53,7 +53,7 @@ public class UserRegistration {
 		if (isEmail)
 			System.out.println(email + " is a Valid Email address\n");
 		else
-			System.out.println(email + " is an Invalid Email address");
+			System.out.println(email + " is an Invalid Email address\n");
 	}
 
 	public static void checkValidMobileNumber(String mobileNumber) {
@@ -88,7 +88,6 @@ public class UserRegistration {
 			System.out.println(password + " is a Valid  Password\n");
 		else
 			System.out.println(password + " is an Invalid Password");
-
 	}
 
 	public static void main(String[] args) {
@@ -119,5 +118,81 @@ public class UserRegistration {
 
 		scannerObject.close();
 
+		System.out.println("---------- Valid Emails ----------");
+
+		email = "abc@bridgelabz.co.in";
+		checkValidEmail(email);
+
+		email = "abc@gmail.com.com";
+		checkValidEmail(email);
+
+		email = "abc@yahoo.com";
+		checkValidEmail(email);
+
+		email = "abc@1.com";
+		checkValidEmail(email);
+
+		email = "abc-100@yahoo.com";
+		checkValidEmail(email);
+
+		email = "abc.100@yahoo.com";
+		checkValidEmail(email);
+
+		email = "abc111@abc.com";
+		checkValidEmail(email);
+
+		email = "abc-100@abc.net";
+		checkValidEmail(email);
+
+		email = "abc.100@abc.com.au";
+		checkValidEmail(email);
+
+		email = "abc+100@gmail.com";
+		checkValidEmail(email);
+
+		System.out.println("---------------------------------------------------");
+
+		System.out.println("---------- Invalid Emails ----------");
+
+		email = ".abc@abc.com";
+		checkValidEmail(email);
+
+		email = "abc";
+		checkValidEmail(email);
+
+		email = "abc@.com.my";
+		checkValidEmail(email);
+
+		email = "abc@abc@gmail.com";
+		checkValidEmail(email);
+
+		email = "abc()*@gmail.com";
+		checkValidEmail(email);
+
+		email = "abc..2002@gmail.com";
+		checkValidEmail(email);
+
+		email = "abc.@gmail.com";
+		checkValidEmail(email);
+
+		email = "abc123@.com";
+		checkValidEmail(email);
+
+		email = "abc123@.com.com";
+		checkValidEmail(email);
+
+		email = "abc123@gmail.a";
+		checkValidEmail(email);
+
+		email = "abc@%*.com";
+		checkValidEmail(email);
+
+		email = "abc@gmail.com.1a";
+		checkValidEmail(email);
+
+		email = "abc@gmail.com.aa.au";
+		checkValidEmail(email);
+
+		System.out.println("---------------------------------------------------");
 	}
 }
