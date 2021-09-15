@@ -8,7 +8,7 @@ public class UserRegistration {
 	public static void checkValidFirstName(String firstName) {
 
 		boolean isFirstName;
-		String firstNameRegex = "[A-Z]{1}[a-z]{2,}";
+		String firstNameRegex = "^[A-Z]{1}[a-z]{2,}$";
 		Pattern patternObject = Pattern.compile(firstNameRegex);
 		if (firstName == null) {
 			isFirstName = false;
@@ -17,7 +17,7 @@ public class UserRegistration {
 		isFirstName = matcherObject.matches();
 
 		if (isFirstName)
-			System.out.println(firstName + " is an Valid First Name");
+			System.out.println(firstName + " is an Valid First Name\n");
 		else
 			System.err.println(firstName + " is an Invalid First Name");
 	}
@@ -25,7 +25,7 @@ public class UserRegistration {
 	public static void checkValidLastName(String lastName) {
 
 		boolean isLastName;
-		String lastNameRegex = "[A-Z]{1}[a-z]{2,}";
+		String lastNameRegex = "^[A-Z]{1}[a-z]{2,}$";
 		Pattern patternObject = Pattern.compile(lastNameRegex);
 		if (lastName == null) {
 			isLastName = false;
@@ -34,7 +34,7 @@ public class UserRegistration {
 		isLastName = matcherObject.matches();
 
 		if (isLastName)
-			System.out.println(lastName + " is an Valid Last Name");
+			System.out.println(lastName + " is an Valid Last Name\n");
 		else
 			System.err.println(lastName + " is an Invalid Last Name");
 	}
@@ -59,8 +59,8 @@ public class UserRegistration {
 	public static void checkValidMobileNumber(String mobileNumber) {
 
 		boolean isMobileNumber;
-		String emailRegex = "^[0-9]{2}\\s{1}[0-9]{10}$";
-		Pattern patternObject = Pattern.compile(emailRegex);
+		String mobileRegex = "^[0-9]{2}\\s{1}[0-9]{10}$";
+		Pattern patternObject = Pattern.compile(mobileRegex);
 		if (mobileNumber == null) {
 			isMobileNumber = false;
 		}
@@ -76,7 +76,7 @@ public class UserRegistration {
 	public static void checkValidPassword(String password) {
 
 		boolean isPassword;
-		String passwordRegex = "^([a-zA-Z0-9]*[\\-\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\_\\+]*){8,}$";
+		String passwordRegex = "^(?=.*[A-Z])([a-zA-Z0-9]*([@#$%^&-+=()])*).{8,}$";
 		Pattern patternObject = Pattern.compile(passwordRegex);
 		if (password == null) {
 			isPassword = false;
@@ -93,18 +93,19 @@ public class UserRegistration {
 	public static void main(String[] args) {
 
 		System.out.println("---------- Welcome To User Registration ----------");
+
 		Scanner scannerObject = new Scanner(System.in);
 
 		System.out.println("Enter Your First Name");
-		String firstName = scannerObject.next();
+		String firstName = scannerObject.nextLine();
 		checkValidFirstName(firstName);
 
 		System.out.println("Enter Your Last Name");
-		String lastName = scannerObject.next();
+		String lastName = scannerObject.nextLine();
 		checkValidLastName(lastName);
 
 		System.out.println("Enter Your Email Address");
-		String email = scannerObject.next();
+		String email = scannerObject.nextLine();
 		checkValidEmail(email);
 
 		System.out.println("Enter Your Mobile Number");
